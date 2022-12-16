@@ -1,14 +1,9 @@
 package com.library.Library.user;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 enum AccountType {
-    USER,
+    DEFAULT,
     ADMIN
 }
 
@@ -17,7 +12,7 @@ enum AccountType {
 public class User {
     @Id
     @SequenceGenerator(
-            name="user_sequence",
+            name = "user_sequence",
             sequenceName = "user_sequence",
             allocationSize = 1
     )
@@ -29,6 +24,16 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+
+    public User(Long id, AccountType accountType, String username, String password, String firstName, String lastName, String email) {
+        this.id = id;
+        this.accountType = accountType.name();
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
     public User(AccountType accountType, String username, String password, String firstName, String lastName, String email) {
         this.accountType = accountType.name();

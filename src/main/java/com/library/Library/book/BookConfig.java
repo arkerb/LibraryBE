@@ -27,9 +27,9 @@ public class BookConfig {
     @Bean
     CommandLineRunner createBasicBooks(BookDAO bookDAO) {
         return args -> {
-            Book book1 = new Book("Mets", LocalDate.now(), "Metsas", 3);
+            Book book1 = new Book("Sirli Siim ja Saladus", LocalDate.now().minusWeeks(50), "Tallina Linnas Raamatukogus", 2);
             Book book2 = new Book("Mets", LocalDate.now(), "Metsas", 2);
-            Book book3 = new Book("Mets 2", LocalDate.now(), "Metsas", 2);
+            Book book3 = new Book("Mets 2", LocalDate.now().minusMonths(4), "Metsas", 2);
             bookDAO.saveAll(
                     List.of(book1, book2, book3));
         };
