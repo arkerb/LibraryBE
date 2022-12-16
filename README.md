@@ -17,11 +17,11 @@ data until the server has been stopped. On server start it uses Class config fil
 
 To access to database use go to
 `http://localhost:8080/h2-console`
-Login data has already been provided.
 
-Use postman to make simple request
+JDBC URL has to be: `jdbc:h2:mem:library`
+Username is `sa`
 
-Example request
+Use postman to make simple request. Example request
 
 `http://localhost:8080/api/user/1`
 
